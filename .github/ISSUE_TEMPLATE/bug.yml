@@ -1,0 +1,77 @@
+
+name: "Reporte de bug"
+description: "Informar un error de la aplicación"
+title: "[BUG-XX] "
+labels: ["tipo: bug"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Reporte de error
+        Describe el problema de forma clara.
+        Incluye los pasos para reproducirlo.
+
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: Descripción del problema
+      description: "Explica qué error encontraste."
+      placeholder: |
+        Al intentar guardar una tarea, no aparece
+        en la lista de tareas registradas.
+    validations:
+      required: true
+
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Pasos para reproducir el error
+      placeholder: |
+        1. Abrir la aplicación.
+        2. Ingresar el título de una tarea.
+        3. Pulsar Guardar.
+        4. Revisar la lista de tareas.
+    validations:
+      required: true
+
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Resultado esperado
+      placeholder: |
+        La tarea debería guardarse y aparecer
+        en la lista.
+    validations:
+      required: true
+
+  - type: textarea
+    id: obtenido
+    attributes:
+      label: Resultado obtenido
+      placeholder: |
+        La tarea no aparece en la lista.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: prioridad
+    attributes:
+      label: Prioridad
+      options:
+        - Alta
+        - Media
+        - Baja
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidencia
+    attributes:
+      label: Evidencia adicional
+      description: "Adjunta capturas o información útil."
+      placeholder: |
+        Capturas de pantalla, mensajes de error
+        o detalles del navegador.
+    validations:
+      required: false
