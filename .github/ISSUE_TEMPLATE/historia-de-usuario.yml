@@ -1,0 +1,77 @@
+
+name: "Historia de usuario"
+description: "Solicitar una nueva funcionalidad del sistema"
+title: "[HU-XX] "
+labels: ["tipo: historia de usuario"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Nueva historia de usuario
+        Describe qué necesita el usuario y por qué.
+        Reemplaza XX por el identificador correspondiente.
+
+  - type: textarea
+    id: historia
+    attributes:
+      label: Historia de usuario
+      description: "Explica quién necesita la funcionalidad."
+      placeholder: |
+        Como usuario,
+        quiero registrar tareas,
+        para organizar mis actividades pendientes.
+    validations:
+      required: true
+
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Criterios de aceptación
+      description: "Condiciones para aceptar la historia."
+      placeholder: |
+        - [ ] Permite ingresar un título.
+        - [ ] Permite ingresar una descripción.
+        - [ ] No permite un título vacío.
+        - [ ] Guarda la tarea correctamente.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: prioridad
+    attributes:
+      label: Prioridad
+      description: "Importancia de la funcionalidad."
+      options:
+        - Alta
+        - Media
+        - Baja
+    validations:
+      required: true
+
+  - type: dropdown
+    id: estimacion
+    attributes:
+      label: Estimación
+      description: "Esfuerzo estimado en puntos de historia."
+      options:
+        - "1"
+        - "2"
+        - "3"
+        - "5"
+        - "8"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sprint
+    attributes:
+      label: Sprint previsto
+      description: "Sprint en el que se planea trabajar."
+      options:
+        - Sin asignar
+        - Sprint 1
+        - Sprint 2
+        - Sprint 3
+    validations:
+      required: true
