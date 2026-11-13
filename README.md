@@ -31,3 +31,8 @@ mediante GitHub Issues.
 
 La planificación y el seguimiento se realizarán
 con GitHub Projects.
+
+## Pruebas de GitHub
+
+Este repositorio se utiliza para aprender
+a crear y administrar Pull Requests.
