@@ -1,0 +1,56 @@
+
+name: Integración continua
+
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+    inputs:
+      simular_fallo:
+        description: "Provocar un fallo para practicar"
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  pruebas:
+    name: Verificaciones del repositorio
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v7
+
+      - name: Verificar README
+        run: |
+          echo "Verificando README..."
+          test -f README.md
+          echo "README encontrado."
+
+      - name: Verificar plantillas de Issues
+        run: |
+          echo "Verificando plantillas..."
+          test -f .github/ISSUE_TEMPLATE/historia-de-usuario.yml
+          test -f .github/ISSUE_TEMPLATE/tarea.yml
+          test -f .github/ISSUE_TEMPLATE/bug.yml
+          test -f .github/ISSUE_TEMPLATE/config.yml
+          echo "Plantillas encontradas."
+
+      - name: Verificar plantilla de Pull Request
+        run: |
+          echo "Verificando plantilla de PR..."
+          test -f .github/pull_request_template.md
+          echo "Plantilla encontrada."
+
+      - name: Simular un fallo
+        if: ${{ inputs.simular_fallo == true }}
+        run: |
+          echo "Ejecutando fallo de prueba..."
+          exit 1
