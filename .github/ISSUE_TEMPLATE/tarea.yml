@@ -1,0 +1,66 @@
+
+name: "Tarea técnica"
+description: "Registrar una actividad técnica de desarrollo"
+title: "[T-XX] "
+labels: ["tipo: tarea"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Nueva tarea técnica
+        Describe qué se necesita implementar.
+
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: Descripción de la tarea
+      description: "Explica qué trabajo se realizará."
+      placeholder: |
+        Crear el formulario HTML para registrar tareas.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actividades
+    attributes:
+      label: Actividades por realizar
+      description: "Enumera los pasos necesarios."
+      value: |
+        - [ ] Implementar la solución.
+        - [ ] Realizar las pruebas.
+        - [ ] Documentar los cambios.
+    validations:
+      required: true
+
+  - type: input
+    id: historia
+    attributes:
+      label: Historia de usuario relacionada
+      description: "Número del Issue al que contribuye."
+      placeholder: "#1"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: prioridad
+    attributes:
+      label: Prioridad
+      options:
+        - Alta
+        - Media
+        - Baja
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sprint
+    attributes:
+      label: Sprint previsto
+      options:
+        - Sin asignar
+        - Sprint 1
+        - Sprint 2
+        - Sprint 3
+    validations:
+      required: true
